@@ -41,15 +41,20 @@
     <hr style="margin: 10px 0;">
 
     <div class="row text-center">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h3>Bookmark App</h3>
             <p>Bookmark is a simple Django web application that allows you to manage your favorite sites.</p>
             <a href="{% url 'bookmark:index' %}" class="btn btn-primary">Bookmark</a>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h3>Blog App</h3>
             <p>Blog is a simple Django web application that allows you to manage your blog posts.</p>
             <a href="{% url 'blog:index' %}" class="btn btn-primary">Blog</a>
+        </div>
+        <div class="col-sm-4">
+            <h3>Django ORM Docs</h3>
+            <p>Django ORM CookBook Documents.</p>
+            <a href="/docs/django-orm-cookbook/ko-latest/index.html" class="btn btn-primary">ORM Docs</a>
         </div>
     </div>
 {% endblock %}
