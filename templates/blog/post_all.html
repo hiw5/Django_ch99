@@ -1,9 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}post_all.html{% endblock %}
+
+{% block content %}
 <h1> Blog list </h1>
+
+<ul>
+    <li style="display: inline;">
+        <a href="{% url 'blog:archive' %}">Archive</a>
+    </li>
+</ul>
+
 <br>
 
 {% for post in posts %}
     <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
-    <h3>{{ post.slug }}</h3>
     {{ post.modify_dt|date:"N d, Y" }}
     <p>{{ post.description }}</p>
 {% endfor %}
@@ -23,3 +36,5 @@
         {% endif %}
     </span>
 </div>
+
+{% endblock %}

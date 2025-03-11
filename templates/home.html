@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}home.html{% endblock %}
+
+
+{% block extra-style %}
+<style type="text/css">
+    .home-image{
+        background-image: url("{% static 'img/lion.jpg' %}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        height: 500px;
+        border-top: 10px solid #ccc;
+        border-bottom: 10px solid #ccc;
+        padding 20px 0 0 20px;
+    }
+
+    .title{
+        color: #fff4eb;
+        font-weight: bold;
+    }
+
+    .powered{
+        position: relative;
+        top:77%;
+        color: #c7ffce;
+        font-weight: italic;
+    }
+
+</style>
+{% endblock %}
+{% block content %}
+    <div class="home-image">
+        <h2 class="title"> Django - Python Web Programming</h2>
+        <h4 class="powered"><i class="fas fa-arrow-circle-right"></i> Powered by Django and Bootstrap</h4>
+    </div>
+
+    <hr style="margin: 10px 0;">
+
+    <div class="row text-center">
+        <div class="col-sm-6">
+            <h3>Bookmark App</h3>
+            <p>Bookmark is a simple Django web application that allows you to manage your favorite sites.</p>
+            <a href="{% url 'bookmark:index' %}" class="btn btn-primary">Bookmark</a>
+        </div>
+        <div class="col-sm-6">
+            <h3>Blog App</h3>
+            <p>Blog is a simple Django web application that allows you to manage your blog posts.</p>
+            <a href="{% url 'blog:index' %}" class="btn btn-primary">Blog</a>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    <footer class="fixed-bottom bg-info">
+        <div class="text-white font-italic text-right mr-5">CopyRight &copy; 2025</div>
+    </footer>
+{% endblock %}
