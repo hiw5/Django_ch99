@@ -17,19 +17,35 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include, re_path
-from mysite.views import HomeView
+from mysite.views import HomeView, UserCreateView, UserCreateDoneTV
 from django.views.static import serve
 import os
 
+
+from django.http import HttpResponse
+from django.contrib.auth import logout
 # from bookmark.views import BookmarkLV, BookmarkDV
+
+from django.contrib.auth.views import LogoutView
+
+def debug_logout(request):
+    print(f"Method: {request.method}")
+    logout(request)
+    return HttpResponse("Logged out for debugging")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #path('accounts/logout/', debug_logout, name='logout'),  # 임시 추가
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register', UserCreateView.as_view(), name='register'),
+    path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
 
     path('', HomeView.as_view(), name='home'),
 
     path('bookmark/', include('bookmark.urls')),
     path('blog/', include('blog.urls')),    
+    path('practice/', include('practice.urls')),
 
 ]
 

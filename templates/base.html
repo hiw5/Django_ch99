@@ -49,6 +49,32 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_word">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+
+            <ul class="navvar-nav ml-5 mr-5">
+              <li class="nav-item dropdown mx-1 btn btn-primary">
+                {% if user.is_active %}
+                
+                <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                  <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %} &ensp;</a>
+                  <div class="dropdown-menu">
+                    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                      {% csrf_token %}
+                      <button type="submit" class="dropdown-item">LOG OUT</button>
+                    </form>
+                    {% comment %} <a class="dropdown-item" href="{% url 'logout' %}">LOG OUT</a> {% endcomment %}
+                    <a class="dropdown-item" href="{% url 'password_change' %}">Change PW</a>
+                  </div>
+                  {% else %}
+                  <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                    <i class="fas fa-user"></i>&ensp;Anonymous&ensp;</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{% url 'login' %}">LOG IN</a>
+                      <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                    </div>
+                    {% endif %}
+                  </li>
+                </ul>
+                    
           </div>
         </div>
       </nav>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Django Practice{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'practice_app_name:practice_name' %}">Practice-index(urls-app_name-path-name)</a>
+
+{% for practice_object in practice %}
+    <p>Practice_Char_dict : {{practice_object.practice_char}}</p>
+{% endfor %}
+
+{% for practice_object in object_list %}
+    <p>Practice_Char_super : {{practice_object.practice_char}}</p>
+{% endfor %}
+<a href="{% url 'practice_app_name:practice_pagination' %}">Practice_pagination</a>
+
+{% endblock %}

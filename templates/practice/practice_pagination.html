@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Django Practice{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'practice_app_name:practice_pagination' %}">Practice_pagination</a>
+
+{% for practice_object in practice_context_object_name %}
+    <p>Practice_Char_dict : {{practice_object.practice_char}}</p>
+{% endfor %}
+
+{% for practice_object in practice_context_object_name %}
+    <p>Practice_Char_super : {{practice_object.practice_char}}</p>
+{% endfor %}
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+    {% for i in page_obj.num_pages %}
+    {%endfor%}
+    {% with object_list as page_obj %}
+    {% endwith %}
+
+{% endblock %}

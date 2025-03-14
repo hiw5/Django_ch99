@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}logged_out.html{% endblock %}
+
+
+{% block content %}
+
+<h1> Logged out </h1>
+<br>
+
+<div>
+    <i class="fas fa-quote-left"></i>
+    <span class="h6">&ensp;Thanks for spending your quality time with this web site today &ensp;</span>
+    <i class="fas fa-quote-right"></i>
+</div>
+
+    <p class="font-italic"><a href="{% url 'login' %}">Log in again</p>
+{% endblock %}
+
+
+{% block footer %}
+    <footer class="fixed-bottom bg-info">
+        <div class="text-white font-italic text-right mr-5">CopyRight &copy; 2025</div>
+    </footer>
+{% endblock %}
