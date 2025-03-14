@@ -47,6 +47,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),    
     path('practice/', include('practice.urls')),
 
+    path('api/', include('API.urls')),
+
 ]
 
 if settings.DEBUG:

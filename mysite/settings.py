@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'bookmark.apps.BookmarkConfig', # 추가된 부분
     'blog.apps.BlogConfig', # 추가된 부분
     'practice.apps.PracticeConfig',
-    
+
+    'API.apps.ApiConfig',
+    'rest_framework',
+
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
 ]
